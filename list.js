@@ -80,7 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const predefinedList = document.getElementById('predefinedList');
         const listInput = document.getElementById('listInput');
         const selectedOptions = Array.from(predefinedList.selectedOptions).map(option => option.text);
-
-        listInput.value += (listInput.value ? '\n' : '') + selectedOptions.join('\n');
+    
+        // This ensures we only add new items that aren't already in the listInput to avoid duplicates
+        const currentList = listInput.value.split('\n');
+        selectedOptions.forEach(option => {
+            if (!currentList.includes(option)) {
+                listInput.value += (listInput.value ? '\n' : '') + option;
+            }
+        });
     });
+    
 });
