@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAIR PROGRAMMING</title>
+    <link rel="stylesheet" href="ListAtt.css">
+</head>
+<body>
+    <div class="container">
+        <h1>PAIR PROGRAMMING</h1>
+        <div class="predefined-list-container">
+            <h2>Select People</h2>
+            <select id="predefinedList" multiple size="5">
+                <option value="Jurie">Jurie</option>
+                <option value="Savvas">Savvas</option>
+                <option value="Marcus">Marcus</option>
+                <option value="Pierre">Pierre</option>
+                <option value="Diego">Diego</option>
+                <option value="Akira">Akira</option>
+                <option value="Eben">Eben</option>
+                <option value="Eddie">Eddie</option>
+                <option value="Dave">Dave</option>
+                <option value="Rishen">Rishen</option>
+            </select>
+            <button id="addSelectedButton">Add Selected to List</button>
+        </div>
+        <textarea id="listInput" rows="10" cols="50" placeholder="Enter items separated by a newline or select from above..."></textarea>
+        <button id="randomizeButton">Randomize List</button>
+        <button id="clearListButton">Clear List</button>
+        <ul id="randomizedList"></ul>
+    </div>
+    <script src="list.js"></script>
+</body>
+</html>
