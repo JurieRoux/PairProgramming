@@ -16,7 +16,20 @@ document.getElementById('randomizeButton').addEventListener('click', function() 
         // Optionally, clear the lastCombination to allow for repeating the previous combination
         lastCombination = [];
     });
-    
+    document.addEventListener('DOMContentLoaded', function() {
+    var select = document.getElementById('predefinedList');
+    var options = Array.from(select.options);
+
+    options.sort(function(a, b) {
+        return a.text.localeCompare(b.text);
+    });
+
+    select.innerHTML = "";
+    options.forEach(function(option) {
+        select.appendChild(option);
+    });
+});
+
     let items = input.split('\n').filter(item => item.trim() !== '');
     let tries = 0;
 
