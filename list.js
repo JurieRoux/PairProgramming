@@ -81,14 +81,20 @@ function arraysEqual(a, b) {
 
 function exportRandomizedListToTxt() {
     const listItems = document.querySelectorAll('#randomizedList li');
+    console.log(listItems); // Debug: Check if list items are correctly selected
     const listText = Array.from(listItems).map(li => li.textContent).join('\n');
 
-    const blob = new Blob([listText], { type: 'text/plain' });
+    // Debugging: Log the text content to be exported
+    console.log('Exporting the following content:', listText);
+
+    const blob = new Blob([listText], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
     a.download = 'randomizedList.txt';
+    // Append to body to ensure visibility in DOM (required in some browsers)
     document.body.appendChild(a);
+    a.style.display = 'none'; // Hide the element
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
